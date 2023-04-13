@@ -1,0 +1,1 @@
+Mettre la page d'affichage de la liste de simulation à l'intérieur de la page de création et modification 
