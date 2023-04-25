@@ -15,11 +15,11 @@ namespace Calculatrice_Hypothecaire.Model
         public int Id { get; set; }
 
         [XmlElement("MontantFinancer")]
-        public double MontantFinancer { get; set; }
+        public decimal MontantFinancer { get; set; }
         [XmlElement("InteretAnnuel")]
-        public double InteretAnnuel { get; set; }
+        public decimal InteretAnnuel { get; set; }
         [XmlElement("PeriodeAmortis")]
-        public string PeriodeAmortis { get; set; }
+        public int PeriodeAmortis { get; set; }
         [XmlElement("FreqPaiement")]
         public string FreqPaiement { get; set; }
         [XmlElement("NomCli")]
@@ -28,12 +28,12 @@ namespace Calculatrice_Hypothecaire.Model
         public string PrenomCli { get; set; }
         [XmlElement("Description")]
         public string Description { get; set; }
-
+        
         public static SimulationDetail CreateEmpty()
         {
             return new SimulationDetail(0, 0, 0, "", "", "", "", "");
         }
-        public SimulationDetail(int id,double montantFinancer, double interetAnnuel, string periodeAmortis, 
+        public SimulationDetail(int id, decimal montantFinancer, decimal interetAnnuel, int periodeAmortis, 
             string freqPaiement, string nomCli, string prenomCli, string description ) 
         {
             Id = id;
@@ -45,42 +45,44 @@ namespace Calculatrice_Hypothecaire.Model
             PrenomCli = prenomCli;
             Description = description;
         }
-
-        public double TotalCapital// poser question au prof pour les trois
+        //pour deserilisation
+        public SimulationDetail()
         {
-            get
-            {
-                double totalCapital = 0;
-                return totalCapital;
-            }
+            
         }
 
-        public double TotalInteret
+        //TODO: Calcul historiqueSimulation 
+        public List<historiquePaiements> GetHistoriquePaiement()
         {
-            get
+           List<historiquePaiements> historiquePaiement = new List<historiquePaiements>(PeriodeAmortis * 12);
+
+            decimal totalCapital = 0, totalInteretAnnuel = 0, coutTotalv = 0, paiement = 0, capital = 0, interet = 0, balance = 0;
+            int idMA =1;
+
+            /*
+             Calcul : 
+            Paiement
+            Capital
+            Interet
+            Balance
+             */
+            for (int i=0; i < historiquePaiement.Count; i++, idMA++)
             {
-                double totalInteret = 0;
-                return totalInteret;
+                
+                
+                
+                historiquePaiement[i].TotalCapital = totalCapital;
+                historiquePaiement[i].TotalInteretAnnuel = totalInteretAnnuel;
+                historiquePaiement[i].CoutTotal = coutTotalv;
+                historiquePaiement[i].Paiement = paiement;
+                historiquePaiement[i].Capital = capital;
+                historiquePaiement[i].Interet = interet;
+                historiquePaiement[i].Balance = balance;
+                historiquePaiement[i].idMA = idMA;
             }
+
+            return historiquePaiement;
         }
-
-        public double CoutTotal
-        {
-            get 
-            {
-                double coutTotal = 0;
-                return coutTotal; 
-            }
-        }
-
-        
-      /* A changer et a réfléchir comment approcher l'historique de paiements
-       * public List<double>  GetHistoriqueVersement()
-        {
-            List <double>historiqueVersement = new List<double>();
-
-
-        }*/
 
     }
 }

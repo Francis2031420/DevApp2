@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:Calculatrice_Hypothecaire"
         xmlns:viewModel ="clr-namespace:Calculatrice_Hypothecaire.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Background="LightGray">
+        Title="MainWindow" Height="500" Width="1000" MinHeight="500" MinWidth="1000">
+    <Grid Background="LightBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -49,7 +49,19 @@
                     </DataGrid.Columns>
                 </DataGrid>
                 <Grid Grid.Row="4" Grid.ColumnSpan="2">
-                    <Button Height="30" Width="140">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Height="30" Width="140" Grid.Column="0" VerticalAlignment="Bottom" Margin="5" Background="CornflowerBlue" Foreground="GhostWhite" FontWeight="DemiBold">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        Afficher historique
+                    </Button>
+                    <Button Height="30" Width="140" Grid.Column="1" VerticalAlignment="Bottom" Margin="5" Background="CornflowerBlue" Foreground="GhostWhite" FontWeight="DemiBold">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
@@ -72,42 +84,42 @@
                 </Grid.RowDefinitions>
                 <DockPanel LastChildFill="False" Grid.Column="0" Grid.Row="0" Margin="0,10,5,0">
                     <DockPanel DockPanel.Dock="Top">
-                        <Label HorizontalAlignment="Left">Nom :</Label>
+                        <TextBlock TextWrapping="Wrap" Height="30" Width="77" Margin="7,0,0,0">Nom :</TextBlock>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="140" HorizontalAlignment="Right">
-                            <TextBlock Background="White"  ></TextBlock>
+                            <TextBox Background="White"  ></TextBox>
                         </Border>
                     </DockPanel>
-                    <DockPanel DockPanel.Dock="Top" Margin="0,20,0,0">
-                        <Label HorizontalAlignment="Left">Prénom:</Label>
-                        <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="134" HorizontalAlignment="Right">
-                            <TextBlock Background="White"  ></TextBlock>
+                    <DockPanel DockPanel.Dock="Top" Margin="0,0,0,0">
+                        <TextBlock TextWrapping="Wrap" Height="30" Width="77" Margin="7,0,0,0">Prénom:</TextBlock>
+                        <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="140" HorizontalAlignment="Right">
+                            <TextBox Background="White"  ></TextBox>
                         </Border>
                     </DockPanel>
                 </DockPanel>
 
                 <DockPanel LastChildFill="False" Grid.Column="1" Grid.Row="0" Margin="0,10,5,0">
                     <DockPanel DockPanel.Dock="Left">
-                        <Label HorizontalAlignment="Center">Descripition :</Label>
+                        <TextBlock TextWrapping="Wrap" Height="30" Width="77" Margin="7,0,0,0" VerticalAlignment="top">Descripition :</TextBlock>
                     </DockPanel>
-                    <DockPanel DockPanel.Dock="Top">
-                        <Border BorderBrush="Black" BorderThickness="1"  Height="67" Width="110" >
-                            <TextBlock Background="White" Height="67" Width="118" HorizontalAlignment="Center" TextWrapping="Wrap"></TextBlock>
+                    <DockPanel DockPanel.Dock="Right">
+                        <Border BorderBrush="Black" BorderThickness="1"  Height="55" Width="126" VerticalAlignment="Top">
+                            <TextBox Background="White" HorizontalAlignment="Right" Height="55" Width="126" TextWrapping="Wrap"></TextBox>
                         </Border>
                     </DockPanel>
                 </DockPanel>
-                <DockPanel Grid.Column="0" Grid.Row="1" LastChildFill="False" Margin="0,0,5,10">
+                <DockPanel Grid.Column="0" Grid.Row="1" LastChildFill="False" Margin="0,0,5,0">
                     <DockPanel DockPanel.Dock="Top">
                         <Label>Montant à financer:</Label>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20">
-                            <TextBlock Height="20">
-                            </TextBlock>                           
+                            <TextBox Height="20">
+                            </TextBox>                           
                         </Border>
                     </DockPanel>
-                    <DockPanel DockPanel.Dock="Top" Margin="0,20,0,0">
+                    <DockPanel DockPanel.Dock="Top" >
                         <TextBlock TextWrapping="Wrap" Height="30" Width="106" Margin="7,0,0,0">Taux d'intérêts annuel</TextBlock>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20">
-                            <TextBlock Height="20">
-                            </TextBlock>
+                            <TextBox Height="20">
+                            </TextBox>
                         </Border>
                     </DockPanel>
                 </DockPanel>
@@ -115,15 +127,17 @@
                     <DockPanel DockPanel.Dock="Top" Margin="0,0,0,0">
                         <TextBlock TextWrapping="Wrap" Height="30" Width="106" Margin="7,0,0,0">Période amortissement</TextBlock>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20">
-                            <TextBlock Height="20">
-                            </TextBlock>
+                            <TextBox Height="20">
+                            </TextBox>
                         </Border>
                     </DockPanel>
-                    <DockPanel DockPanel.Dock="Top" Margin="0,20,0,0">
+                    <DockPanel DockPanel.Dock="Top">
                         <TextBlock TextWrapping="Wrap" Height="30" Width="106" Margin="7,0,0,0">Fréquence des paiements</TextBlock>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20">
-                            <TextBlock Height="20">
-                            </TextBlock>
+                            <ComboBox Height="20" >
+                                <ComboBoxItem Content="Mensuelle" Selector.IsSelected="True"></ComboBoxItem>
+                                <ComboBoxItem Content="Annuelle"></ComboBoxItem>
+                            </ComboBox>
                         </Border>
                     </DockPanel>
                 </DockPanel>
@@ -136,22 +150,63 @@
                     <RowDefinition Height="1*"></RowDefinition>
                     <RowDefinition Height="1*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <GroupBox Grid.Column="0" Grid.Row="0" Header="Information simulation" >
-                    <DockPanel LastChildFill="False">
-                        <DockPanel  DockPanel.Dock="Top">
-                            <Label>Total capital :</Label>
-                            <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="100" HorizontalAlignment="Left">
-                                <TextBlock></TextBlock>
-                            </Border>
+               
+                <GroupBox Grid.Column="0" Grid.Row="0" Header="Information simulation" Grid.ColumnSpan="2" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <DockPanel LastChildFill="False" Grid.Column="0">
+                            <DockPanel  DockPanel.Dock="Top">
+                                <Label>Total capital :</Label>
+                                <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="100" HorizontalAlignment="Right">
+                                    <TextBlock  Height="20" Width="100"></TextBlock>
+                                </Border>
+                            </DockPanel>
+                            <DockPanel  DockPanel.Dock="Top">
+                                <TextBlock TextWrapping="Wrap" Height="30" Width="77" Margin="7,0,0,0">Taux d'intérêts annuel :</TextBlock>
+                                <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="99" HorizontalAlignment="Right">
+                                    <TextBlock></TextBlock>
+                                </Border>
+                            </DockPanel>
                         </DockPanel>
-                    </DockPanel>
+                        <DockPanel LastChildFill="False" Grid.Column="1">
+                            <DockPanel  DockPanel.Dock="Top">
+                                <Label>Coût total:</Label>
+                                <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="100" HorizontalAlignment="Right">
+                                    <TextBlock  Height="20" Width="100"></TextBlock>
+                                </Border>
+                            </DockPanel>
+                            <DockPanel  DockPanel.Dock="Top">
+                                <TextBlock TextWrapping="Wrap" Height="30" Width="77" Margin="7,0,0,0">fréquence des versements :</TextBlock>
+                                <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="99" HorizontalAlignment="Right" >
+                                    <TextBlock></TextBlock>
+                                </Border>
+                            </DockPanel>
+                        </DockPanel>
+                    </Grid>
                 </GroupBox>
                 <Separator Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"></Separator>
-                <GroupBox Header="Historique des versements" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></GroupBox>
+                <GroupBox Header="Historique des versements" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,5,5">
+                    <DataGrid x:Name="Historique"  
+                            Grid.Row="0" 
+                            Grid.Column="0" 
+                            Grid.ColumnSpan="2"
+                            Grid.RowSpan="4"
+                            AutoGenerateColumns="False"
+                            ItemsSource="{Binding ListPaiements}"
+                            >
+                        <DataGrid.Columns ><!--Binding a changer-->
+                            <DataGridTextColumn Header="Mois" Width="95" Binding="{Binding NomPrenom}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Paiements" Width="95" Binding="{Binding NomPrenom}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Capital" Width="95" Binding="{Binding NomPrenom}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Intérêts" Width="95" Binding="{Binding NomPrenom}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Balance" Width="95" Binding="{Binding NomPrenom}" IsReadOnly="True"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                        
+                    </DataGrid>
+                </GroupBox>
             </Grid>
         </Border>
     </Grid>
