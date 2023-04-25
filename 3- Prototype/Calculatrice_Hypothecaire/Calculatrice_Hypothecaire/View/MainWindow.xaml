@@ -62,7 +62,7 @@
         </Border>
         <Border  Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="5" BorderBrush="Black" BorderThickness="1">
             <Grid Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="WhiteSmoke">
-                <Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
@@ -74,13 +74,13 @@
                     <DockPanel DockPanel.Dock="Top">
                         <Label HorizontalAlignment="Left">Nom :</Label>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="140" HorizontalAlignment="Right">
-                            <TextBlock Background="White" Height="20" Width="140" HorizontalAlignment="Right" ></TextBlock>
+                            <TextBlock Background="White"  ></TextBlock>
                         </Border>
                     </DockPanel>
                     <DockPanel DockPanel.Dock="Top" Margin="0,20,0,0">
                         <Label HorizontalAlignment="Left">Prénom:</Label>
-                        <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="138" HorizontalAlignment="Right">
-                            <TextBlock Background="White" Height="20" Width="138" HorizontalAlignment="Right" ></TextBlock>
+                        <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="134" HorizontalAlignment="Right">
+                            <TextBlock Background="White"  ></TextBlock>
                         </Border>
                     </DockPanel>
                 </DockPanel>
@@ -90,7 +90,7 @@
                         <Label HorizontalAlignment="Center">Descripition :</Label>
                     </DockPanel>
                     <DockPanel DockPanel.Dock="Top">
-                        <Border BorderBrush="Black" BorderThickness="1">
+                        <Border BorderBrush="Black" BorderThickness="1"  Height="67" Width="110" >
                             <TextBlock Background="White" Height="67" Width="118" HorizontalAlignment="Center" TextWrapping="Wrap"></TextBlock>
                         </Border>
                     </DockPanel>
@@ -127,6 +127,7 @@
                         </Border>
                     </DockPanel>
                 </DockPanel>
+             
             </Grid>
         </Border>
         <Border Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="2" Background="WhiteSmoke" BorderBrush="Black" BorderThickness="1" Margin="5">
@@ -139,8 +140,18 @@
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <GroupBox Grid.Column="0" Grid.Row="0" Header="Information simulation" >
+                    <DockPanel LastChildFill="False">
+                        <DockPanel  DockPanel.Dock="Top">
+                            <Label>Total capital :</Label>
+                            <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="100" HorizontalAlignment="Left">
+                                <TextBlock></TextBlock>
+                            </Border>
+                        </DockPanel>
+                    </DockPanel>
+                </GroupBox>
                 <Separator Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"></Separator>
-                <GroupBox Header="dsa" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></GroupBox>
+                <GroupBox Header="Historique des versements" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></GroupBox>
             </Grid>
         </Border>
     </Grid>
