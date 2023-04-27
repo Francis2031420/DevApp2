@@ -74,11 +74,13 @@ namespace Calculatrice_Hypothecaire.Model
             totalCapital = MontantFinancer;
             paiement = (decimal)((double)(totalCapital * interetPeriode) / (1 - Math.Pow(1 + (double)interetPeriode, -nbPaiementTotal)));// donne la valeurs des paiements
             balance = MontantFinancer;
+
+
             for (int i=0; i < historiquePaiement.Count; i++, idMA++)
             {
                 historiquePaiement[i].Paiement = paiement;
-                historiquePaiement[i].Interet = interet = totalCapital * interetPeriode; //calcul intéret
-                historiquePaiement[i].Capital = paiement - interet;// calcul le capital
+                historiquePaiement[i].Interet = balance * interetPeriode; //calcul intéret
+                historiquePaiement[i].Capital = paiement - historiquePaiement[i].Interet;// calcul le capital
                 balance -=historiquePaiement[i].Capital;
                 historiquePaiement[i].Balance = balance; // calcul balance
                 historiquePaiement[i].idMA = idMA;// donne valeur de l'id du paiements

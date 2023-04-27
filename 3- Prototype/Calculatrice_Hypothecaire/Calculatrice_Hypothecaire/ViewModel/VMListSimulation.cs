@@ -19,6 +19,8 @@ namespace Calculatrice_Hypothecaire.ViewModel
             {
                 _selectedSimulation.PeriodeAmortis = value;
                 ChangedValue("PeriodeAmortis");
+                ChangedValue("SelectedSimulation");
+
             }
         }
 
@@ -29,6 +31,8 @@ namespace Calculatrice_Hypothecaire.ViewModel
             {
                 _selectedSimulation.MontantFinancer = value;
                 ChangedValue("MontantFinancer");
+                ChangedValue("SelectedSimulation");
+
             }
         }
 
@@ -39,6 +43,8 @@ namespace Calculatrice_Hypothecaire.ViewModel
             {
                 _selectedSimulation.InteretAnnuel = value;
                 ChangedValue("InteretAnnuel");
+                ChangedValue("SelectedSimulation");
+
             }
         }
 
@@ -49,6 +55,8 @@ namespace Calculatrice_Hypothecaire.ViewModel
             {
                 _selectedSimulation.FreqPaiement = value;
                 ChangedValue("FrequencePaiement");
+                ChangedValue("SelectedSimulation");
+
             }
         }
 
@@ -59,6 +67,8 @@ namespace Calculatrice_Hypothecaire.ViewModel
             {
                 _selectedSimulation.NomCli = value;
                 ChangedValue("NomCli");
+                ChangedValue("SelectedSimulation");
+
             }
         }
 
@@ -68,6 +78,8 @@ namespace Calculatrice_Hypothecaire.ViewModel
             set{
                 _selectedSimulation.PrenomCli = value;
                 ChangedValue("PrenomCli");
+                ChangedValue("SelectedSimulation");
+
             }
         }
 
@@ -77,12 +89,14 @@ namespace Calculatrice_Hypothecaire.ViewModel
             set {
                 _selectedSimulation.Description = value;
                 ChangedValue("Description");
+                ChangedValue("SelectedSimulation");
+
             }
         }
 
         List<historiquePaiements> _historiquePaiements;
             //TODO: S'assurer que lorsque selectedsimulation change que l'historique aussi
-              public List<historiquePaiements> HistoriquePaiement
+              public List<historiquePaiements> HistoriquePaiements
               {
                   set{
                   }
@@ -109,7 +123,14 @@ namespace Calculatrice_Hypothecaire.ViewModel
            set{
                 _selectedSimulation = value;
                 ChangedValue("SelectedSimulation");
-           } 
+                ChangedValue("InteretAnnuel");
+                ChangedValue("PrenomCli");
+                ChangedValue("Description");
+                ChangedValue("NomCli");
+                ChangedValue("FrequencePaiement");
+                ChangedValue("MontantFinancer");
+                ChangedValue("PeriodeAmortis");
+            } 
         }
 
         //propriete historique paiement
@@ -118,6 +139,8 @@ namespace Calculatrice_Hypothecaire.ViewModel
 
         public VMListSimulation()
         {
+            SimulationDetail simulationHardcoder1 = new SimulationDetail(0,230000,(decimal)6.5,25,"Mensuelle","Francis","Blais","BLALBLABLA");         
+            SimulationDetail simulationHardcoder2 = new SimulationDetail(1, 230000, (decimal)6.5, 25, "Mensuelle", "Emmi", "Gagnon", "FRUE");
             this.Save = new CommandRelay(EnregistrerSimulation_Execute, EnregistrerSimulation_CanExecute);
             this.Delete = new CommandRelay(DeleteSimulation_Execute  , DeleteSimulation_CanExecute);
             this.Create = new CommandRelay(CreateSimulation_Execute);
@@ -125,7 +148,8 @@ namespace Calculatrice_Hypothecaire.ViewModel
             _listSimulations = new List<SimulationDetail>();
             if(_listSimulations.Count == 0)
             {
-                _listSimulations.Add(SimulationDetail.CreateEmpty());
+                _listSimulations.Add(simulationHardcoder1);
+                _listSimulations.Add(simulationHardcoder2);
             }
             _selectedSimulation = new SimulationDetail();
             _historiquePaiements = new List<historiquePaiements>();
@@ -144,6 +168,9 @@ namespace Calculatrice_Hypothecaire.ViewModel
         {
              _historiquePaiements = _selectedSimulation.GetHistoriquePaiement();
             ChangedValue("HistoriquePaiements");
+            ChangedValue("TotalCapital");
+            ChangedValue("TauxInteretAnnuel");
+            ChangedValue("CoutTotal");
 
         }
         //a rajouter pt un autre ICOMMAND
@@ -151,7 +178,7 @@ namespace Calculatrice_Hypothecaire.ViewModel
         //TODO: s'assurer que rien est vide lors de l'enregistrement
         public bool EnregistrerSimulation_CanExecute(object parameter)
         {
-            if(_selectedSimulation == null)
+            if(_selectedSimulation== null)
                 return false;
             return true;
         }
@@ -177,7 +204,15 @@ namespace Calculatrice_Hypothecaire.ViewModel
         public void CreateSimulation_Execute(object parameter)
         {
             _selectedSimulation = SimulationDetail.CreateEmpty();
+            _listSimulations.Add(_selectedSimulation);
             ChangedValue("ListSimulations");
+            ChangedValue("InteretAnnuel");
+            ChangedValue("PrenomCli");
+            ChangedValue("Description");
+            ChangedValue("NomCli");
+            ChangedValue("FrequencePaiement");
+            ChangedValue("MontantFinancer");
+            ChangedValue("PeriodeAmortis");
         }
 
 
@@ -230,6 +265,8 @@ namespace Calculatrice_Hypothecaire.ViewModel
                     return 0;
             }
         }
+
+
 
 
 

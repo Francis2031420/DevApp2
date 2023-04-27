@@ -42,11 +42,12 @@
                             Grid.ColumnSpan="2"
                             Grid.RowSpan="4"
                             AutoGenerateColumns="False"
-                            ItemsSource="{Binding ListSimulations}"
-                            SelectedItem="{Binding SelectedSimulation}"
+                            ItemsSource="{Binding ListSimulations , Mode=TwoWay}"
+                            SelectedItem="{Binding SelectedSimulation, Mode=TwoWay}"
+                            CanUserAddRows="False"
                             >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Simulations" Width="215" Binding="{Binding PrenomCli}" IsReadOnly="True" ></DataGridTextColumn>
+                        <DataGridTextColumn Header="Simulations" Width="320" Binding="{Binding PrenomCli}" IsReadOnly="True" ></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Grid Grid.Row="4" Grid.ColumnSpan="2">
@@ -61,6 +62,14 @@
                             </Style>
                         </Button.Resources>
                         Afficher historique
+                    </Button>
+                    <Button Height="30" Width="140" Grid.Column="0" VerticalAlignment="Top" Margin="5" Background="CornflowerBlue" Foreground="GhostWhite" FontWeight="DemiBold" IsEnabled="False">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        Enregistrer
                     </Button>
                     <Button Height="30" Width="140" Grid.Column="1" VerticalAlignment="Bottom" Margin="5" Background="CornflowerBlue" Foreground="GhostWhite" FontWeight="DemiBold" Command="{Binding Delete}">
                         <Button.Resources>
@@ -95,13 +104,13 @@
                     <DockPanel DockPanel.Dock="Top">
                         <TextBlock TextWrapping="Wrap" Height="30" Width="77" Margin="7,0,0,0">Nom :</TextBlock>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="140" HorizontalAlignment="Right">
-                            <TextBox Background="White" Text="{Binding NomCli}"></TextBox>
+                            <TextBox Background="White" Text="{Binding NomCli , Mode=TwoWay}"></TextBox>
                         </Border>
                     </DockPanel>
                     <DockPanel DockPanel.Dock="Top" Margin="0,0,0,0">
                         <TextBlock TextWrapping="Wrap" Height="30" Width="77" Margin="7,0,0,0">Prénom:</TextBlock>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="140" HorizontalAlignment="Right">
-                            <TextBox Background="White"  Text="{Binding PrenomCli}" ></TextBox>
+                            <TextBox Background="White"  Text="{Binding PrenomCli, Mode=TwoWay}" ></TextBox>
                         </Border>
                     </DockPanel>
                 </DockPanel>
@@ -120,14 +129,14 @@
                     <DockPanel DockPanel.Dock="Top">
                         <Label>Montant à financer:</Label>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20">
-                            <TextBox Height="20" Text="{Binding MontantFinancer}">
+                            <TextBox Height="20" Text="{Binding MontantFinancer , Mode=TwoWay}">
                             </TextBox>                           
                         </Border>
                     </DockPanel>
                     <DockPanel DockPanel.Dock="Top" >
                         <TextBlock TextWrapping="Wrap" Height="30" Width="106" Margin="7,0,0,0">Taux d'intérêts annuel</TextBlock>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20">
-                            <TextBox Height="20" Text="{Binding InteretAnnuel}">
+                            <TextBox Height="20" Text="{Binding InteretAnnuel , Mode=TwoWay}">
                             </TextBox>
                         </Border>
                     </DockPanel>
@@ -136,7 +145,7 @@
                     <DockPanel DockPanel.Dock="Top" Margin="0,0,0,0">
                         <TextBlock TextWrapping="Wrap" Height="30" Width="106" Margin="7,0,0,0">Période amortissement</TextBlock>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20">
-                            <TextBox Height="20" Text="{Binding PeriodeAmortis}">
+                            <TextBox Height="20" Text="{Binding PeriodeAmortis , Mode=TwoWay}">
                             </TextBox>
                         </Border>
                     </DockPanel>
@@ -144,7 +153,7 @@
                         <TextBlock TextWrapping="Wrap" Height="30" Width="106" Margin="7,0,0,0">Fréquence des paiements</TextBlock>
                         <Border BorderBrush="Black" BorderThickness="1" Height="20">
                             <ComboBox Height="20" >
-                                <ComboBoxItem Content="Mensuelle" Selector.IsSelected="True"></ComboBoxItem>
+                                <ComboBoxItem Content="Mensuelle" Selector.IsSelected="True" ></ComboBoxItem>
                                 <!--<ComboBoxItem Content="Annuelle"></ComboBoxItem> a rajouter-->
                             </ComboBox>
                         </Border>
@@ -170,13 +179,13 @@
                             <DockPanel  DockPanel.Dock="Top">
                                 <Label>Total capital :</Label>
                                 <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="100" HorizontalAlignment="Right">
-                                    <TextBlock  Height="20" Width="100"  Text="{Binding TotalCapital}"></TextBlock>
+                                    <TextBlock  Height="20" Width="100"  Text="{Binding TotalCapital , StringFormat=N2}"></TextBlock>
                                 </Border>
                             </DockPanel>
                             <DockPanel  DockPanel.Dock="Top">
                                 <TextBlock TextWrapping="Wrap" Height="30" Width="77" Margin="7,0,0,0">Taux d'intérêts annuel :</TextBlock>
                                 <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="99" HorizontalAlignment="Right">
-                                    <TextBlock  Text="{Binding TauxInteretAnnuel}"></TextBlock>
+                                    <TextBlock  Text="{Binding TauxInteretAnnuel, StringFormat=N2}"></TextBlock>
                                 </Border>
                             </DockPanel>
                         </DockPanel>
@@ -184,13 +193,13 @@
                             <DockPanel  DockPanel.Dock="Top">
                                 <Label>Coût total:</Label>
                                 <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="100" HorizontalAlignment="Right">
-                                    <TextBlock  Height="20" Width="100" Text="{Binding CoutTotal}"></TextBlock>
+                                    <TextBlock  Height="20" Width="100" Text="{Binding CoutTotal , StringFormat=N2}"></TextBlock>
                                 </Border>
                             </DockPanel>
                             <DockPanel  DockPanel.Dock="Top">
                                 <TextBlock TextWrapping="Wrap" Height="30" Width="77" Margin="7,0,0,0">fréquence des versements :</TextBlock>
                                 <Border BorderBrush="Black" BorderThickness="1" Height="20" Width="99" HorizontalAlignment="Right" >
-                                    <TextBlock Text="{Binding FrequencePaiement}"></TextBlock>
+                                    <TextBlock >Mensuelle</TextBlock>
                                 </Border>
                             </DockPanel>
                         </DockPanel>
@@ -204,14 +213,15 @@
                             Grid.ColumnSpan="2"
                             Grid.RowSpan="4"
                             AutoGenerateColumns="False"
-                            ItemsSource="{Binding HistoriquePaiement}"
+                            ItemsSource="{Binding HistoriquePaiements , Mode=TwoWay}"
+                            CanUserAddRows="False"
                             >
                         <DataGrid.Columns ><!--Binding a changer-->
-                            <DataGridTextColumn Header="Mois" Width="95" Binding="{Binding NomPrenom}" IsReadOnly="True"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Paiements" Width="95" Binding="{Binding NomPrenom}" IsReadOnly="True"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Capital" Width="95" Binding="{Binding NomPrenom}" IsReadOnly="True"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Intérêts" Width="95" Binding="{Binding NomPrenom}" IsReadOnly="True"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Balance" Width="95" Binding="{Binding NomPrenom}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Mois" Width="95" Binding="{Binding idMA}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Paiements" Width="95" Binding="{Binding Paiement, StringFormat=N2}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Capital" Width="95" Binding="{Binding Capital, StringFormat=N2}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Intérêts" Width="95" Binding="{Binding Interet, StringFormat=N2}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Balance" Width="95" Binding="{Binding Balance, StringFormat=N2}" IsReadOnly="True"></DataGridTextColumn>
                         </DataGrid.Columns>
                         
                     </DataGrid>
