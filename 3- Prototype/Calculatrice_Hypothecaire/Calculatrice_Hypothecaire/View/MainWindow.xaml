@@ -63,7 +63,7 @@
                         </Button.Resources>
                         Afficher historique
                     </Button>
-                    <Button Height="30" Width="140" Grid.Column="0" VerticalAlignment="Top" Margin="5" Background="CornflowerBlue" Foreground="GhostWhite" FontWeight="DemiBold" IsEnabled="False">
+                    <Button Height="30" Width="140" Grid.Column="0" VerticalAlignment="Top" Margin="5" Background="CornflowerBlue" Foreground="GhostWhite" FontWeight="DemiBold"  x:Name="BtnSave" >
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>

@@ -19,24 +19,3 @@ E:\École\Informatique\Session4\dev app\RepoProjetSolo\DevApp2\3- Prototype\Calc
 E:\École\Informatique\Session4\dev app\RepoProjetSolo\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\ref\Calculatrice_Hypothecaire.dll
 E:\École\Informatique\Session4\dev app\RepoProjetSolo\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\View\MainWindow.g.cs
 E:\École\Informatique\Session4\dev app\RepoProjetSolo\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\View\MainWindow.baml
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\bin\Debug\net6.0-windows\Calculatrice_Hypothecaire.exe
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\bin\Debug\net6.0-windows\Calculatrice_Hypothecaire.deps.json
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\bin\Debug\net6.0-windows\Calculatrice_Hypothecaire.runtimeconfig.json
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\bin\Debug\net6.0-windows\Calculatrice_Hypothecaire.dll
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\bin\Debug\net6.0-windows\Calculatrice_Hypothecaire.pdb
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\Calculatrice_Hypothecaire.csproj.AssemblyReference.cache
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\View\MainWindow.g.cs
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\App.g.cs
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\Calculatrice_Hypothecaire_MarkupCompile.cache
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\Calculatrice_Hypothecaire_MarkupCompile.lref
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\View\MainWindow.baml
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\Calculatrice_Hypothecaire.g.resources
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\Calculatrice_Hypothecaire.GeneratedMSBuildEditorConfig.editorconfig
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\Calculatrice_Hypothecaire.AssemblyInfoInputs.cache
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\Calculatrice_Hypothecaire.AssemblyInfo.cs
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\Calculatrice_Hypothecaire.csproj.CoreCompileInputs.cache
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\Calculatrice_Hypothecaire.dll
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\refint\Calculatrice_Hypothecaire.dll
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\Calculatrice_Hypothecaire.pdb
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\Calculatrice_Hypothecaire.genruntimeconfig.cache
-P:\Session4\DevAppAvance\DevApp2\3- Prototype\Calculatrice_Hypothecaire\Calculatrice_Hypothecaire\obj\Debug\net6.0-windows\ref\Calculatrice_Hypothecaire.dll

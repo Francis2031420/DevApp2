@@ -8,19 +8,24 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Francis\\.nuget\\packages\\": {}
+    "C:\\Users\\2031420\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\École\\Informatique\\Session4\\dev app\\RepoProjetSolo\\DevApp2\\3- Prototype\\Calculatrice_Hypothecaire\\Calculatrice_Hypothecaire\\Calculatrice_Hypothecaire.csproj",
+      "projectUniqueName": "P:\\Session4\\DevAppAvance\\DevApp2\\3- Prototype\\Calculatrice_Hypothecaire\\Calculatrice_Hypothecaire\\Calculatrice_Hypothecaire.csproj",
       "projectName": "Calculatrice_Hypothecaire",
-      "projectPath": "E:\\École\\Informatique\\Session4\\dev app\\RepoProjetSolo\\DevApp2\\3- Prototype\\Calculatrice_Hypothecaire\\Calculatrice_Hypothecaire\\Calculatrice_Hypothecaire.csproj",
-      "packagesPath": "C:\\Users\\Francis\\.nuget\\packages\\",
-      "outputPath": "E:\\École\\Informatique\\Session4\\dev app\\RepoProjetSolo\\DevApp2\\3- Prototype\\Calculatrice_Hypothecaire\\Calculatrice_Hypothecaire\\obj\\",
+      "projectPath": "P:\\Session4\\DevAppAvance\\DevApp2\\3- Prototype\\Calculatrice_Hypothecaire\\Calculatrice_Hypothecaire\\Calculatrice_Hypothecaire.csproj",
+      "packagesPath": "C:\\Users\\2031420\\.nuget\\packages\\",
+      "outputPath": "P:\\Session4\\DevAppAvance\\DevApp2\\3- Prototype\\Calculatrice_Hypothecaire\\Calculatrice_Hypothecaire\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Francis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\2031420\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -28,6 +33,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -64,7 +70,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -79,6 +81,7 @@ namespace Calculatrice_Hypothecaire.ViewModel
                 _selectedSimulation.PrenomCli = value;
                 ChangedValue("PrenomCli");
                 ChangedValue("SelectedSimulation");
+                ChangedValue("ListSimulations");
 
             }
         }
@@ -107,7 +110,8 @@ namespace Calculatrice_Hypothecaire.ViewModel
         {
             get
             {
-                return _listSimulations;
+                //return _listSimulations ;
+                return new List<SimulationDetail>(_listSimulations)  ;
             }
             set
             {
@@ -139,20 +143,27 @@ namespace Calculatrice_Hypothecaire.ViewModel
 
         public VMListSimulation()
         {
-            SimulationDetail simulationHardcoder1 = new SimulationDetail(0,230000,(decimal)6.5,25,"Mensuelle","Francis","Blais","BLALBLABLA");         
+            _historiquePaiements = new List<historiquePaiements>();
+            _selectedSimulation = SimulationDetail.CreateEmpty();
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location).ToString() + "\\data.xml";
+            if (File.Exists(path))
+            {
+                _listSimulations = Serializer.DeserializeFromXML<List<SimulationDetail>>(path);
+            }
+            else
+            {
+                _listSimulations = new List<SimulationDetail>();
+            }
+            SimulationDetail simulationHardcoder1 = new SimulationDetail(0, 230000, (decimal)6.5, 25, "Mensuelle", "Francis", "Blais", "BLALBLABLA");
             SimulationDetail simulationHardcoder2 = new SimulationDetail(1, 230000, (decimal)6.5, 25, "Mensuelle", "Emmi", "Gagnon", "FRUE");
+            _listSimulations.Add(simulationHardcoder1);
+            _listSimulations.Add(simulationHardcoder2);
+
             this.Save = new CommandRelay(EnregistrerSimulation_Execute, EnregistrerSimulation_CanExecute);
             this.Delete = new CommandRelay(DeleteSimulation_Execute  , DeleteSimulation_CanExecute);
             this.Create = new CommandRelay(CreateSimulation_Execute);
             this.calculer = new CommandRelay(Calculer_Execute, Calculer_CanExecute);
-            _listSimulations = new List<SimulationDetail>();
-            if(_listSimulations.Count == 0)
-            {
-                _listSimulations.Add(simulationHardcoder1);
-                _listSimulations.Add(simulationHardcoder2);
-            }
-            _selectedSimulation = new SimulationDetail();
-            _historiquePaiements = new List<historiquePaiements>();
+              
         }
 
 
@@ -186,6 +197,17 @@ namespace Calculatrice_Hypothecaire.ViewModel
         public void EnregistrerSimulation_Execute(object parameter)
         {
             _listSimulations.Add(_selectedSimulation);
+            ChangedValue("ListSimulations");
+            string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location).ToString() + "\\data.xml";
+            if (File.Exists(path))
+            {
+                _listSimulations = Serializer.DeserializeFromXML<List<SimulationDetail>>(path);
+            }
+            else
+            {
+                _listSimulations = new List<SimulationDetail>();
+            }
+
         }
 
         public ICommand Delete { get; }
@@ -198,6 +220,16 @@ namespace Calculatrice_Hypothecaire.ViewModel
         public void DeleteSimulation_Execute(object parameter)
         {
             _listSimulations.Remove(_selectedSimulation);
+            _selectedSimulation = _listSimulations[_listSimulations.Count-1];
+            ChangedValue("SelectedSimulation");
+            ChangedValue("ListSimulations");
+            ChangedValue("InteretAnnuel");
+            ChangedValue("PrenomCli");
+            ChangedValue("Description");
+            ChangedValue("NomCli");
+            ChangedValue("FrequencePaiement");
+            ChangedValue("MontantFinancer");
+            ChangedValue("PeriodeAmortis");
         }
         public ICommand Create { get; }
         //rajouter un can execute dans produit final
@@ -231,7 +263,7 @@ namespace Calculatrice_Hypothecaire.ViewModel
         {
             get
             {
-                if (_historiquePaiements.Count > 0)
+                if (_historiquePaiements?.Count > 0)
                 {
                     return _historiquePaiements[0].TotalCapital;
                 }
